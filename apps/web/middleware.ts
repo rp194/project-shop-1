@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { isRole } from "@/lib/auth";
 import { defaultLocale, getLocaleFromPathname } from "@/lib/i18n";
 
 export function middleware(request: NextRequest) {
@@ -19,8 +20,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${defaultLocale}${pathname}`, request.url));
   }
 
-  if (pathname.endsWith("/account") && !request.cookies.get("session_role")) {
-    return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
+  if (pathname.endsWith("/account")) {
+    const role = request.cookies.get("session_role")?.value;
+    if (!role || !isRole(role)) {
+      return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
+    }
   }
 
   return NextResponse.next();
