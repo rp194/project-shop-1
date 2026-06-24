@@ -41,7 +41,7 @@ Build a bilingual (FA/EN), mobile-first, high-performance e-commerce and catalog
 - Integration spec (SMS, payment, live chat)
 - SEO URL strategy
 
-### Phase 1 — Core Platform Foundation (Weeks 2–4)
+### Phase 1 — Core Platform Foundation
 1. Project and environment setup:
    - Monorepo-ready structure
    - Environments and secrets strategy
