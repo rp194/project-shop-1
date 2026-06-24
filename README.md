@@ -61,7 +61,7 @@ Build a bilingual (FA/EN), mobile-first, high-performance e-commerce and catalog
 - Reusable UI/component library
 
 ## Phase 1 Quick Start
-1. `cd /home/runner/work/project-shop-1/project-shop-1/apps/web`
+1. `cd apps/web`
 2. `cp .env.example .env.local`
 3. `npm install`
 4. `npm run dev`
