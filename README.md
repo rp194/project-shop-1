@@ -43,15 +43,15 @@ Build a bilingual (FA/EN), mobile-first, high-performance e-commerce and catalog
 
 ### Phase 1 — Core Platform Foundation
 1. Project and environment setup:
-   - Monorepo-ready structure
-   - Environments and secrets strategy
-   - CI/CD baseline
+   - Monorepo-ready structure (`apps/web`)
+   - Environments and secrets strategy (`apps/web/.env.example`)
+   - CI/CD baseline (`.github/workflows/ci.yml`)
 2. UI foundation:
-   - Mobile-first responsive layout
-   - Reusable design system/components
+   - Mobile-first responsive shell in `apps/web/src/components`
+   - Reusable base UI component(s)
 3. Auth and account:
-   - SMS OTP login/registration
-   - Role-based access (Admin / Operator / Customer)
+   - SMS OTP login/registration starter flow (mock OTP)
+   - Role-based access starter model (Admin / Operator / Customer)
 4. Bilingual readiness:
    - FA/EN locale support and fallback behavior
 
@@ -59,6 +59,15 @@ Build a bilingual (FA/EN), mobile-first, high-performance e-commerce and catalog
 - Running base platform (FA/EN-ready)
 - Auth + account basics
 - Reusable UI/component library
+
+## Phase 1 Quick Start
+1. `cd apps/web`
+2. `cp .env.example .env.local`
+3. `npm install`
+4. `npm run dev`
+5. Open `http://localhost:3000`
+
+Use OTP code from `OTP_MOCK_CODE` (default `123456`) for the starter login flow.
 
 ## Non-Functional Requirements
 - SEO-first rendering (SSR/SSG/ISR where appropriate)
