@@ -29,7 +29,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           </Link>
         </nav>
       </header>
-      <main dir={localeDirection(selectedLocale)} className="rounded-xl border border-zinc-200 bg-white p-4 sm:p-6">
+      <main lang={selectedLocale} dir={localeDirection(selectedLocale)} className="rounded-xl border border-zinc-200 bg-white p-4 sm:p-6">
         {children}
       </main>
     </MobileShell>
