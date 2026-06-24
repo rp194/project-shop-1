@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { roles, type Role } from "@/lib/auth";
+import { isRole, roles, type Role } from "@/lib/auth";
 import type { Dictionary, Locale } from "@/lib/i18n";
 
 type LoginFormProps = {
@@ -68,7 +68,12 @@ export function LoginForm({ locale, dictionary }: LoginFormProps) {
           {dictionary.auth.roleLabel}
           <select
             value={role}
-            onChange={(event) => setRole(event.target.value as Role)}
+            onChange={(event) => {
+              const nextRole = event.target.value;
+              if (isRole(nextRole)) {
+                setRole(nextRole);
+              }
+            }}
             className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
           >
             {roles.map((entry) => (
