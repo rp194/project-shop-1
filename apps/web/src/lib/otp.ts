@@ -1,4 +1,5 @@
 const fallbackOtp = "123456";
+const TWELVE_HOURS_IN_SECONDS = 60 * 60 * 12;
 
 const internationalPhonePattern = /^\+?\d{10,15}$/;
 const iranMobilePattern = /^(\+98|0)?9\d{9}$/;
@@ -11,7 +12,7 @@ export const isPhone = (value: string): boolean => {
 };
 
 export const getSessionMaxAge = (): number => {
-  const fallback = 60 * 60 * 12;
+  const fallback = TWELVE_HOURS_IN_SECONDS;
   const raw = process.env.SESSION_MAX_AGE_SECONDS;
 
   if (!raw) {
